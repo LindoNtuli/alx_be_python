@@ -2,7 +2,7 @@
 num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 # Prompt the user to select an operation
-operation = input("Choose an operation (+, -, *, /): ").lower()
+operation = input("Choose the operation (+, -, *, /): ").lower()
 # Perform the operation using a match case statement
 match operation:
     case "+": result = num1 + num2
