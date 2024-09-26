@@ -14,6 +14,6 @@ match Priority:
     case "low": Reminder += ". Consider completing it when you have free time."
     case _: Reminder += " Priority level not recognized."
 # Modify the reminder if the task is time-bound
-if Time_bound == "yes": Reminder += " This task requires immediate attention today!"
+if Time_bound == "yes": Reminder += ""
 # Print the customized reminder
-print (f"Reminder:")
+print (Reminder)
