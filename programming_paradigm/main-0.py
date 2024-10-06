@@ -2,25 +2,19 @@ import sys
 from bank_account import BankAccount
 
 def main():
-    account = BankAccount(100)  # Example starting balance
+    # Check command line arguments for initial balance
     if len(sys.argv) < 2:
-        print("Usage: python main.py <command>:<amount>")
-        print("Commands: deposit, withdraw, display")
-        sys.exit(1)
+        print("Usage: python main-0.py <initial_balance>")
+        return
+    
+    try:
+        initial_balance = float(sys.argv[1])
+    except ValueError:
+        print("Invalid initial balance. Please enter a numeric value.")
+        return
 
-    command, *params = sys.argv[1].split(':')
-    amount = float(params[0]) if params else None
-
-    if command == "deposit" and amount is not None:
-        account.deposit(amount)
-        print(f"Deposited: ${amount}")
-    elif command == "withdraw" and amount is not None:
-        if account.withdraw(amount):
-            print(f"Withdrew: ${amount}")
-    elif command == "display":
-        account.display_balance()
-    else:
-        print("Invalid command.")
+    account = BankAccount(initial_balance)
+    account.display_balance()
 
 if __name__ == "__main__":
     main()
